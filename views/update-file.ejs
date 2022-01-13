@@ -1,0 +1,42 @@
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Employee Database System</title>
+
+
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+    <link href="../css/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link rel="../stylesheet" type="text/css" href="css/design.css">
+
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/jquery.dataTables.min.js"></script>
+    <script src="../js/dataTables.bootstrap4.min.js"></script>
+
+</head>
+
+<body>
+    <%- include('common/header')%>
+
+
+<div class="container mt-5 w-50">
+
+    <h2 class="mb-4">Update Employee Data</h2>
+
+    <form action="/edit/<%= x.Name%>?_method=put" method="POST">
+        <input type="hidden" name="_method" value="PUT">
+        
+        <input type="text" value="<%= x.Name%>" name="name" class="form-control" placeholder="Employee Name">
+
+        <input type="text" value="<%= x.Designation%>" name="designation" class="form-control" placeholder="Employee Designation">
+
+        <input type="text" value="<%=x.Salary%>" name="salary" class="form-control" placeholder="Employee Salary">
+
+        <button type="submit" class="btn btn-danger btn-block mt-3">Update Employee</button>
+
+    </form>
+</div>
+
+<%- include('common/footer') %>

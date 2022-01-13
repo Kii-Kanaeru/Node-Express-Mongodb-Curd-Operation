@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Employee Database System</title>
+      <%-include('common/header')%>
+      <%if(sucess  && sucess != ''){%>
+         <div class="alert alert-success" role="alert">
+           <%=sucess%>
+          </div>
+          <%}else if(err && err != ''){%>
+            <div class="alert alert-danger" role="alert">
+               <%=err%>
+            <%}%>
+      <div class="container mt-5">
+         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+               <tr>
+                  <th>Name</th>
+                  <th>Designation</th>
+                  <th>Salary</th>
+                  <th>Operations</th>
+               </tr>
+            </thead>
+
+            <tbody>
+<% x.forEach((y)=>{%>
+
+
+               <tr>
+                  <td><%= y.Name%></td>
+                  <td><%= y.Designation%></td>
+                  <td><%= y.Salary%></td>
+                  <td>
+                     <a class="btn btn-primary" href="/edit/<%= y.Name%>">Edit</a>
+                     
+                     <form style="display: inline;" action="/delete/<%= y.Name%>?_method=DELETE" method="POST">
+                       
+                        <button style="cursor: pointer;" type="submit" class="btn btn-danger ml-2">Delete</button>
+                     </form>
+                  </td>
+               </tr>
+               <%})%>
+            </tbody>
+         </table>
+      </div>
+      <%- include('common/footer') %>

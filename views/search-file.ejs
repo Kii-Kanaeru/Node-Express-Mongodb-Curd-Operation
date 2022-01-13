@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Employee Database System</title>
+      <%- include('common/header')%>
+      <div class="container mt-5 w-50">
+         <h2 class="mb-4">Search Employee</h2>
+        
+         <form action="/employee" method="GET">
+            <input type="text" name="name" class="form-control" placeholder="Employee Name">
+            <button type="submit" class="btn btn-danger btn-block mt-3">Search in Database</button>
+         </form>
+
+        <%if(x){%>
+
+      
+         <h4 class="text-danger my-4">Search Results: </h4>
+         <table class="table table-bordered" width="100%" cellspacing="0">
+            <thead>
+               <tr>
+                  <th><%=x.Name%></th>
+                  <th><%=x.Designation%></th>
+                  <th><%=x.Salary%></th>
+               </tr>
+            </thead>
+        
+         </table>
+      </div>
+      <%}%>
+
+      <%- include('common/footer') %>

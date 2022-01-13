@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Employee Database System</title>
+      <%- include('common/header')%>
+      <div class="container mt-5 w-50">
+         <h2 class="mb-4">Add New Employee</h2>
+         <form action="/add-employ" method="post">
+            <input type="text" name="name" class="form-control" placeholder="Employee Name">
+            <input type="text" name="designation" class="form-control" placeholder="Employee Designation">
+            <input type="text" name="salary" class="form-control" placeholder="Employee Salary">
+            <button type="submit" class="btn btn-danger btn-block mt-3">Add to Database</button>
+         </form>
+      </div>
+      <%- include('common/footer') %>
